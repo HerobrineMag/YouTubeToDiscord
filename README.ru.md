@@ -1,8 +1,8 @@
-# YouTube → Discord Rich Presence
+# YouTubeToDiscord
 
 [English version](README.md)
 
-Показывает в **десктопном Discord**, что ты сейчас смотришь или слушаешь на **YouTube** и **YouTube Music** (в Chrome или другом Chromium-браузере), в виде Rich Presence статуса.
+Discord Rich Presence для YouTube и YouTube Music. Показывает в **десктопном Discord**, что ты сейчас смотришь или слушаешь на **YouTube** и **YouTube Music** (в Chrome или другом Chromium-браузере), в виде Rich Presence статуса.
 
 ## Возможности
 
@@ -25,7 +25,7 @@ Chrome (userscript в Tampermonkey)  ──HTTP──►  локальный м�
  читает название, время, превью…              127.0.0.1:6969                      показывает Rich Presence
 ```
 
-1. `youtube-discord-rpc.user.js` читает состояние плеера со страницы и отправляет его на `http://127.0.0.1:6969` каждые несколько секунд и при play / pause / перемотке.
+1. `YouTubeToDiscord.user.js` читает состояние плеера со страницы и отправляет его на `http://127.0.0.1:6969` каждые несколько секунд и при play / pause / перемотке.
 2. `server.js` принимает данные и обновляет твой статус в Discord. К Discord он обращается только при реальных изменениях, чтобы не упираться в лимиты.
 
 Ничего не уходит с твоего компьютера, кроме данных Rich Presence, которые и так показывает сам Discord.
@@ -60,7 +60,7 @@ npm start
 
 ### 3. Установи userscript
 
-1. В Tampermonkey создай новый скрипт, вставь содержимое `youtube-discord-rpc.user.js` и сохрани.
+1. В Tampermonkey создай новый скрипт, вставь содержимое `YouTubeToDiscord.user.js` и сохрани.
 2. Когда Tampermonkey спросит доступ к `127.0.0.1`, выбери **Always allow**.
 3. В Chrome 138 и новее открой `chrome://extensions`, зайди в **Details** у Tampermonkey и включи **Allow User Scripts** (или включи режим разработчика). Перезагрузи вкладку YouTube.
 
@@ -82,7 +82,7 @@ npm start
 - В статусе максимум две кнопки, и подписи у них одинаковые для всех. Discord не сообщает приложению язык зрителя, поэтому подписи на английском.
 - Поддерживается только десктопный клиент Discord с локальным IPC-подключением.
 - Одновременно должна играть одна вкладка. Если вкладок несколько, побеждают последние данные.
-- YouTube время от времени меняет вёрстку. Если пропали название, автор или аватарка, обнови селекторы в `youtube-discord-rpc.user.js` (вызовы `querySelector` в `getInfo`).
+- YouTube время от времени меняет вёрстку. Если пропали название, автор или аватарка, обнови селекторы в `YouTubeToDiscord.user.js` (вызовы `querySelector` в `getInfo`).
 - На YouTube Music аватарки канала нет, поэтому маленькая картинка там не показывается.
 
 ## Решение проблем
@@ -102,7 +102,7 @@ npm start
 ```
 config.json                      Application ID приложения Discord
 server.js                        локальный мост: HTTP-сервер, Discord RPC, иконка в трее
-youtube-discord-rpc.user.js      userscript для Tampermonkey
+YouTubeToDiscord.user.js      userscript для Tampermonkey
 start.bat / start-hidden.vbs     скрытый запуск для Windows
 icon.ico                         иконка в трее
 ```

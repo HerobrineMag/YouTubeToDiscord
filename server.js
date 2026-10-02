@@ -114,9 +114,9 @@ function startTray() {
       menu: {
         icon: ICON,
         title: '',
-        tooltip: 'YouTube → Discord RPC',
+        tooltip: 'YouTubeToDiscord',
         items: [
-          { title: 'YouTube → Discord RPC', tooltip: '', checked: false, enabled: false },
+          { title: 'YouTubeToDiscord', tooltip: '', checked: false, enabled: false },
           { title: 'Exit', tooltip: 'Stop the bridge', checked: false, enabled: true },
         ],
       },

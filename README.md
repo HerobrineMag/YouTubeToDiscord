@@ -1,8 +1,8 @@
-# YouTube → Discord Rich Presence
+# YouTubeToDiscord
 
 [Русская версия](README.ru.md)
 
-Show what you are watching or listening to on **YouTube** and **YouTube Music** (in Chrome or any Chromium browser) as a Rich Presence status in the **Discord desktop app**.
+Discord Rich Presence for YouTube and YouTube Music. Show what you are watching or listening to on **YouTube** and **YouTube Music** (in Chrome or any Chromium browser) as a Rich Presence status in the **Discord desktop app**.
 
 ## Features
 
@@ -25,7 +25,7 @@ Chrome (Tampermonkey userscript)  ──HTTP──►  local bridge (Node.js)  �
  reads title, time, thumbnail…            127.0.0.1:6969                      shows Rich Presence
 ```
 
-1. `youtube-discord-rpc.user.js` reads the player state from the page and sends it to `http://127.0.0.1:6969` every few seconds and on play / pause / seek.
+1. `YouTubeToDiscord.user.js` reads the player state from the page and sends it to `http://127.0.0.1:6969` every few seconds and on play / pause / seek.
 2. `server.js` receives it and updates your Discord activity. It only talks to Discord when something actually changes, to stay within Discord's rate limits.
 
 Nothing leaves your computer except the Rich Presence data that Discord itself displays.
@@ -60,7 +60,7 @@ npm start
 
 ### 3. Install the userscript
 
-1. In Tampermonkey, create a new script and paste the contents of `youtube-discord-rpc.user.js`, then save.
+1. In Tampermonkey, create a new script and paste the contents of `YouTubeToDiscord.user.js`, then save.
 2. When Tampermonkey asks for access to `127.0.0.1`, choose **Always allow**.
 3. In Chrome 138 or newer, open `chrome://extensions`, open Tampermonkey's **Details** and enable **Allow User Scripts** (or turn on Developer mode). Reload the YouTube tab.
 
@@ -82,7 +82,7 @@ Open any video on `youtube.com/watch?v=...` or a track on `music.youtube.com` an
 - Discord allows at most two buttons per status, and button labels are the same for everyone. Discord does not tell the app the viewer's language, so the labels are in English.
 - Only the Discord desktop client with a local IPC connection is supported.
 - Only one tab should play at a time. With several tabs the latest data wins.
-- YouTube changes its page layout from time to time. If the title, author or avatar stop appearing, update the selectors in `youtube-discord-rpc.user.js` (the `querySelector` calls in `getInfo`).
+- YouTube changes its page layout from time to time. If the title, author or avatar stop appearing, update the selectors in `YouTubeToDiscord.user.js` (the `querySelector` calls in `getInfo`).
 - The channel avatar is not available on YouTube Music, so no small image is shown there.
 
 ## Troubleshooting
@@ -102,7 +102,7 @@ Open any video on `youtube.com/watch?v=...` or a track on `music.youtube.com` an
 ```
 config.json                      Discord Application ID
 server.js                        local bridge: HTTP server, Discord RPC, tray icon
-youtube-discord-rpc.user.js      Tampermonkey userscript
+YouTubeToDiscord.user.js      Tampermonkey userscript
 start.bat / start-hidden.vbs     hidden launcher for Windows
 icon.ico                         tray icon
 ```

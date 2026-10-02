@@ -1,5 +1,5 @@
 {
-  "name": "youtube-discord-rpc",
+  "name": "youtubetodiscord",
   "version": "1.0.0",
   "description": "Discord Rich Presence for YouTube and YouTube Music via a Tampermonkey userscript and a local bridge",
   "type": "module",
