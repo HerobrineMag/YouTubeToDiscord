@@ -34,7 +34,7 @@ Chrome (userscript в Tampermonkey)  ──HTTP──►  локальный м�
 
 - Windows (скрипты запуска для Windows, а сам мост это обычный Node.js)
 - **Десктопное приложение Discord**, запущенное (браузерная версия не подходит)
-- [Node.js](https://nodejs.org) 18 или новее, добавленный в `PATH`
+- [Node.js](https://nodejs.org/en/download) 18 или новее, добавленный в `PATH`
 - Chrome или другой Chromium-браузер с расширением [Tampermonkey](https://www.tampermonkey.net)
 
 ## Установка
